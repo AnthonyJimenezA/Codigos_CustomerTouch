@@ -17,7 +17,7 @@
     <div class="container my-5">
         <section class="card">
             <h1 class="text-center p-4">Códigos Infobip <object type="image/svg+xml" data="images/Logo.svg" class="img-fluid">
-                Your browser does not support SVG.
+                Tu Navegador no soporta SVG.
             </object></h1>
 
             <section class="card-body">
