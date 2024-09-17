@@ -1,0 +1,49 @@
+$(document).ready(function () {
+    function fetchResults(searchValue = '') {
+        $.ajax({
+            url: '../controlador/search_controller.php',
+            type: 'POST',
+            data: { search: searchValue },
+            success: function (response) {
+                try {
+                    let data = JSON.parse(response);
+                    let tableBody = $('#resultsTable tbody');
+                    tableBody.empty();
+
+                    if (data.length === 0) {
+                        tableBody.append(`
+                            <tr>
+                                <td colspan="4" class="text-center">No se encontraron datos</td>
+                            </tr>
+                        `);
+                    } else {
+                        $.each(data, function (index, item) {
+                            tableBody.append(`
+                                <tr>
+                                    <td>${item.CATEGORIA}</td>
+                                    <td>${item.CODIGO}</td>
+                                    <td><code>${item.ESTADO}</code></td>
+                                    <td>${item.DESCRIPCION}</td>
+                                </tr>
+                            `);
+                        });
+                    }
+                } catch (e) {
+                    console.error('Error al parsear JSON:', e);
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Error al Obtener los Datos:', error);
+            }
+        });
+    }
+
+    // Fetch initial results
+    fetchResults();
+
+    // Update results on search input change
+    $('#searchInput').keyup(function () {
+        let searchValue = $(this).val();
+        fetchResults(searchValue);
+    });
+});

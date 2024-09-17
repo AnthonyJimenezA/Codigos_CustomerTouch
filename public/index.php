@@ -16,9 +16,11 @@
 
     <div class="container my-5">
         <section class="card">
-            <h1 class="text-center p-4">Códigos Infobip <object type="image/svg+xml" data="images/Logo.svg" class="img-fluid">
-                Tu Navegador no soporta SVG.
-            </object></h1>
+            <h1 class="text-center p-4">Códigos Infobip 
+                <object type="image/svg+xml" data="images/Logo.svg" class="img-fluid">
+                    Tu Navegador no soporta SVG.
+                </object>
+            </h1>
 
             <section class="card-body">
                 <h4 class="card-title mb-4">Buscador de Códigos</h4>
@@ -54,58 +56,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-        </script>
-
-    <script>
-        function fetchResults(searchValue = '') {
-            $.ajax({
-                url: 'controlador/search_controller.php',
-                type: 'POST',
-                data: { search: searchValue },
-                success: function (response) {
-                    let data = JSON.parse(response);
-                    let tableBody = $('#resultsTable tbody');
-                    tableBody.empty();
-
-                    if (data.length === 0) {
-
-                        tableBody.append(` 
-                        <tr>
-                            <td colspan="4" class="text-center">No se encontraron datos</td>
-                        </tr>
-                        `)
-                    } else {
-
-                        $.each(data, function (index, item) {
-                            tableBody.append(`
-                                <tr>
-                                    <td>${item.CATEGORIA}</td>
-                                    <td>${item.CODIGO}</td>
-                                    <td><code> ${item.ESTADO}</code></td>
-                                    <td>${item.DESCRIPCION}</td>
-                                </tr>
-                            `);
-                        });
-                    }
-
-
-                },
-                error: function () {
-                    console.error('Error al Obtener los Datos');
-                }
-            });
-        }
-
-        $(document).ready(function () {
-
-            fetchResults();
-
-            $('#searchInput').keyup(function () {
-                let searchValue = $(this).val();
-                fetchResults(searchValue);
-            });
-        });
     </script>
+    <script src="js/main.js"></script>
 
 </body>
 
