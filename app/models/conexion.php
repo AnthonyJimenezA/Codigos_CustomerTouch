@@ -1,10 +1,10 @@
 <?php
-// Archivo: /modelo/conexion.php
+
 class Conexion {
     private $conexion;
 
     public function __construct() {
-        $config = include('../config.php');
+        $config = include('../../config/config.php');
         $this->conexion = new mysqli(
             $config['db']['host'], 
             $config['db']['user'], 

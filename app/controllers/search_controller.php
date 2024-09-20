@@ -1,5 +1,5 @@
 <?php
-include "../modelo/conexion.php";
+include "../models/conexion.php";
 
 
 $search = isset($_POST['search']) ? $_POST['search'] : '';

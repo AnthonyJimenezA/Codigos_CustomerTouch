@@ -1,7 +1,7 @@
 $(document).ready(function () {
     function fetchResults(searchValue = '') {
         $.ajax({
-            url: '../controlador/search_controller.php',
+            url: 'app/controllers/search_controller.php',
             type: 'POST',
             data: { search: searchValue },
             success: function (response) {
@@ -38,10 +38,10 @@ $(document).ready(function () {
         });
     }
 
-    // Fetch initial results
+
     fetchResults();
 
-    // Update results on search input change
+
     $('#searchInput').keyup(function () {
         let searchValue = $(this).val();
         fetchResults(searchValue);

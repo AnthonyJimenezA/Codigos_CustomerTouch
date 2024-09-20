@@ -1,9 +1,5 @@
 <?php
-// Archivo: config.php
 
-if (php_sapi_name() !== 'cli' && strpos($_SERVER['REQUEST_URI'], basename(__FILE__)) !== false) {
-    die('No tienes acceso a este archivo.');
-}
 
 return [
     'db' => [
