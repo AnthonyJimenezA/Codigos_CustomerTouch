@@ -1,4 +1,14 @@
 $(document).ready(function () {
+
+
+    function sanitizeInput(input) {
+        return input.replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
     function fetchResults(searchValue = '') {
         $.ajax({
             url: 'app/controllers/search_controller.php',
@@ -44,6 +54,8 @@ $(document).ready(function () {
 
     $('#searchInput').keyup(function () {
         let searchValue = $(this).val();
+        searchValue = sanitizeInput(searchValue);//Sanitizar la entrada contra XSS
         fetchResults(searchValue);
     });
+
 });

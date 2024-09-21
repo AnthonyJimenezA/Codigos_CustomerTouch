@@ -5,10 +5,11 @@ class Conexion {
 
     public function __construct() {
         $config = include('../../config/config.php');
+
         $this->conexion = new mysqli(
-            $config['db']['host'], 
-            $config['db']['user'], 
-            $config['db']['password'], 
+            $config['db']['host'],
+            $config['db']['user'],
+            $config['db']['password'],
             $config['db']['database']
         );
 
@@ -25,4 +26,5 @@ class Conexion {
         $this->conexion->close();
     }
 }
+
 ?>

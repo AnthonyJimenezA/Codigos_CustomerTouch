@@ -1,5 +1,5 @@
 body {
-    background-color: #004aad;
+    background-color:#121a57;
 }
 
 .card {
@@ -97,6 +97,14 @@ table td code {
     color: #2176AE;
     padding: 2px 4px;
     font-size: 0.9rem;
+}
+
+td a {
+    color: #1e90ff;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease-in-out;
 }
 
 .btn-primary {

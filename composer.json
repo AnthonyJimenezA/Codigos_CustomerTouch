@@ -1,0 +1,12 @@
+{
+    "name": "fabriciojimenez/codigos-infobip",
+    "authors": [
+        {
+            "name": "Anthony Jimenez",
+            "email": "a.fabricio2003@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
