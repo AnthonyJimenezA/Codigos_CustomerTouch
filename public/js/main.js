@@ -30,9 +30,9 @@ $(document).ready(function () {
                         $.each(data, function (index, item) {
                             tableBody.append(`
                                 <tr>
-                                    <td>${item.CATEGORIA}</td>
-                                    <td>${item.CODIGO}</td>
-                                    <td><code>${item.ESTADO}</code></td>
+                                   <td data-label="Categoría">${item.CATEGORIA}</td>
+                                    <td data-label="Código">${item.CODIGO}</td>
+                                    <td data-label="Estado"><code>${item.ESTADO}</code></td>
                                     <td>${item.DESCRIPCION}</td>
                                 </tr>
                             `);

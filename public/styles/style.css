@@ -125,9 +125,11 @@ td a {
     .card {
         border-radius: 5px;
         box-shadow: none;
+        margin: 10px;
     }
 
     .table-responsive {
+        overflow-x: auto;
         padding: 10px;
     }
 
@@ -136,49 +138,120 @@ td a {
     }
 
     h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
     .btn-primary {
         width: 100%;
     }
-}
 
-@media (max-width: 576px) {
-    .container {
-        padding: 0 10px;
+    #resultsTable thead {
+        display: none;
     }
 
-    .card-body {
-        padding: 1rem;
+    #resultsTable tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        border: 1px solid #dee2e6;
+    }
+
+    #resultsTable td {
+        display: flex;
+        justify-content: flex-start;
+        padding: 0.5rem;
+        border-top: none;
+        background: rgba(255, 255, 255, 0.8);
+    }
+    
+    
+    #resultsTable td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        margin-right: 10px;
+        text-align: left;
+    }
+
+
+    #resultsTable tbody tr td[colspan="4"] {
+        grid-column: span 2;
+        text-align: center;
+        font-weight: bold;
+        color: #555;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+/* Pantallas más pequeñas como móviles */
+@media (max-width: 576px) {
+    .card {
+        border-radius: 5px;
+        box-shadow: none;
+        margin: 5px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .form-control {
+        border-radius: 15px;
+    }
+
+    .btn-primary {
+        width: 100%;
     }
 
     .table-responsive {
         overflow-x: auto;
+        padding: 5px;
     }
 
-    h1 {
-        font-size: 1.5rem;
+    #resultsTable thead {
+        display: none;
+    }
+
+    #resultsTable tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        border: none;
+    }
+
+    #resultsTable td {
+        display: flex;
+        justify-content: flex-start;
+        padding: 0.5rem;
+        border: none;
+        background: rgba(255, 255, 255, 0.8);
+    }
+    
+    #resultsTable td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        margin-right: 10px;
+        text-align: left;
     }
 }
 
+/* Pantallas en orientación landscape */
 @media (orientation: landscape) and (max-width: 768px) {
     h1 {
-        font-size: 2rem; 
+        font-size: 2rem;
     }
 
     .form-control {
-        width: 80%; 
-        margin: auto; 
+        width: 80%;
+        margin: auto;
     }
 
     .table-responsive {
-        padding: 15px; 
+        padding: 15px;
     }
 
     .card {
-        margin: 0 5%; 
-        max-width: 90%; 
-        margin: auto; 
+        margin: 0 5%;
+        max-width: 90%;
+        margin: auto;
     }
 }
